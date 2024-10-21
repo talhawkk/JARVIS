@@ -37,6 +37,13 @@ while True:
         say("opening music")
         path="C:/Users/Talha/Downloads/Pehle Bhi Main - Animal 128 Kbps.mp3"
         os.startfile(path)
+    if "Stop".lower() in query.lower():
+        print("jarvis is going to shutdown....\n\nshutdown")
+        break
+    if "shutdown".lower() in query.lower():
+        print("System is going to shutdown....\n\nshutdown")
+        os.system("shutdown /s /t 1")
 
-    # say(query)
+
+# say(query)
 
