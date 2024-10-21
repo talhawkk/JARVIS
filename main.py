@@ -2,6 +2,8 @@
 import webbrowser
 import speech_recognition as sr
 import win32com.client
+import openai
+import os
 def say(txt):
     speaker=win32com.client.Dispatch("SAPI.SpVoice")
     speaker.Speak(txt)
@@ -12,6 +14,7 @@ def take_command():
         r.pause_threshold = 1
         audio=r.listen(source)
         try:
+            print("Recognizing...")
             query = r.recognize_google(audio, language='en-in')
             print(f"user said: {query}\n")
             return query
@@ -30,5 +33,10 @@ while True:
         if f"Open {site[0]}".lower() in query.lower():
             say(f"opening {site[0]}")
             webbrowser.open(site[1])
+    if "open music".lower() in query.lower():
+        say("opening music")
+        path="C:/Users/Talha/Downloads/Pehle Bhi Main - Animal 128 Kbps.mp3"
+        os.startfile(path)
+
     # say(query)
 
